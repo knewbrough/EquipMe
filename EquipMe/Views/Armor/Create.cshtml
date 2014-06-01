@@ -1,0 +1,156 @@
+﻿@model EquipMe.Models.ArmorItem
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset style="width:48%;float:left;">
+        <legend>Individual Entry</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Index)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Index)
+            @Html.ValidationMessageFor(model => model.Index)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayName)
+            @Html.ValidationMessageFor(model => model.DisplayName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Poise)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Poise)
+            @Html.ValidationMessageFor(model => model.Poise)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Physical)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Physical)
+            @Html.ValidationMessageFor(model => model.Physical)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Magic)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Magic)
+            @Html.ValidationMessageFor(model => model.Magic)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fire)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fire)
+            @Html.ValidationMessageFor(model => model.Fire)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Lightning)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Lightning)
+            @Html.ValidationMessageFor(model => model.Lightning)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Dark)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dark)
+            @Html.ValidationMessageFor(model => model.Dark)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Poison)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Poison)
+            @Html.ValidationMessageFor(model => model.Poison)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bleed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Bleed)
+            @Html.ValidationMessageFor(model => model.Bleed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Petrify)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Petrify)
+            @Html.ValidationMessageFor(model => model.Petrify)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Curse)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Curse)
+            @Html.ValidationMessageFor(model => model.Curse)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Slot)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Slot)
+            @Html.ValidationMessageFor(model => model.Slot)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SetName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SetName)
+            @Html.ValidationMessageFor(model => model.SetName)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div style="clear:both;">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

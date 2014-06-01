@@ -1,0 +1,127 @@
+﻿@model EquipMe.Models.ArmorItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ArmorItem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Index)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Index)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DisplayName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisplayName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Weight)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Weight)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Poise)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Poise)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Physical)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Physical)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Magic)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Magic)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fire)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fire)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Lightning)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lightning)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dark)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dark)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Poison)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Poison)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bleed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bleed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Petrify)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Petrify)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Curse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Curse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Slot)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Slot)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SetName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SetName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

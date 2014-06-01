@@ -1,0 +1,34 @@
+﻿@model EquipMe.Models.ArmorItem
+
+@{
+    ViewBag.Title = "CSV Upload";
+    if (ViewBag.Error != null)
+    {
+        var error = ViewBag.Error[0];
+    }
+    
+}
+
+<h2>CSV Create</h2>
+
+@using (Html.BeginForm("CsvUpload","Armor",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{    
+    <fieldset style="width:48%;float:left;">
+        <legend>CSV Flat File</legend>
+        <div class="editor-label">
+            Upload CSV:
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" id="file" /><br />
+            <input type="submit" />
+        </div>
+    </fieldset>
+}
+
+<div style="clear:both;">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}
