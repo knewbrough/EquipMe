@@ -63,31 +63,33 @@ namespace EquipMe.Controllers
         }
 
         [HttpPost]
-        public string CsvCreate(ArmorItem armoritem)
+        public void CsvCreate(ArmorItem armoritem)
         {
             if (ModelState.IsValid)
             {
                 db.ArmorItems.Add(armoritem);
                 db.SaveChanges();
-                return "Armor item \"" + armoritem.Name + "\" successfully added.<br />";
+                ViewBag.ArmorMessage += "Armor item \"" + armoritem.Name + "\" successfully added.";
             }
-            
-            return "Adding item \"" + armoritem.Name + "\" FAILED.<br />"; 
-            
-        }
-
-        public string CsvRead()
-        {
-            var csv = new CsvReader(textReader);
-            while (csv.Read())
+            else
             {
-                var record = csv.GetRecord<Models.ArmorItem>();
-                var result = CsvCreate(record);
-                return result;
+                ViewBag.ArmorMessage += "Adding item \"" + armoritem.Name + "\" FAILED.";
             }
-            return "End of file.";
-
+            
         }
+
+        //public string CsvRead()
+        //{
+        //    var csv = new CsvReader(textReader);
+        //    while (csv.Read())
+        //    {
+        //        var record = csv.GetRecord<Models.ArmorItem>();
+        //        var result = CsvCreate(record);
+        //        return result;
+        //    }
+        //    return "End of file.";
+
+        //}
 
         public ActionResult CsvUpload()
         {
@@ -101,9 +103,27 @@ namespace EquipMe.Controllers
             {
                 if (file.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("../App_Data/uploads"), fileName);
-                    file.SaveAs(path);
+                    //var fileName = Path.GetFileName(file.FileName);
+                    //var path = Path.Combine(Server.MapPath("../App_Data/uploads"), fileName);
+                    //file.SaveAs(path);
+                    ////ICsvParser csvParser = new CsvParser(new StreamReader(file.InputStream));
+                    ////var csv = new CsvReader(csvParser);
+                    ////var result = new List<string>();
+                    ////while (csv.Read())
+                    ////{
+                    ////    var record = csv.GetRecord<Models.ArmorItem>();
+                    ////    CsvCreate(record);
+                    ////}
+
+                    ICsvParser csvParser = new CsvParser(new StreamReader(file.InputStream));
+                    CsvReader csvReader = new CsvReader(csvParser);                    
+                    while (csvReader.Read())
+                    {
+                        CsvCreate(csvReader.GetRecord<Models.ArmorItem>());
+                    }
+
+
+                    return View();
                 }
                 else
                 {
@@ -112,10 +132,8 @@ namespace EquipMe.Controllers
             }
             else
             {
-                ViewBag.Error = TempData["File is null."];
                 return View();            
             }
-            return RedirectToAction("Index");
         }
 
         public ICsvParser textReader { get; set; }

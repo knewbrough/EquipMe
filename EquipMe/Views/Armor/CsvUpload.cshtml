@@ -1,12 +1,7 @@
 ﻿@model EquipMe.Models.ArmorItem
 
 @{
-    ViewBag.Title = "CSV Upload";
-    if (ViewBag.Error != null)
-    {
-        var error = ViewBag.Error[0];
-    }
-    
+    ViewBag.Title = "CSV Upload";    
 }
 
 <h2>CSV Create</h2>
@@ -24,6 +19,10 @@
         </div>
     </fieldset>
 }
+
+<div style="clear:both;">
+    @Html.ViewBag.ArmorMessage
+</div>
 
 <div style="clear:both;">
     @Html.ActionLink("Back to List", "Index")
